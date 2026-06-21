@@ -1,0 +1,24 @@
+name: DomFly
+version: ${project.version}
+main: top.wunanc.domfly.DomFly
+api-version: '1.20'
+authors: [ Hotguo ]
+depend: [ Dominion ]
+softdepend: [ LuckPerms, PlaceholderAPI ]
+description: Dominion Territory Flight Add-on Plugin.
+folia-supported: true
+
+commands:
+  domfly:
+    description: 在领地内切换飞行模式
+    usage: /domfly
+    permission: domfly.use
+    permission-message: "§c你没有权限使用此命令!"
+
+permissions:
+  domfly.use:
+    description: "允许使用领地飞行"
+    default: op
+  domfly.admin:
+    description: "管理员权限"
+    default: op
