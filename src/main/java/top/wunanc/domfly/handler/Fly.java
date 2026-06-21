@@ -115,7 +115,10 @@ public class Fly implements Listener {
         flyingPlayers.remove(player.getUniqueId());
         player.getScheduler().execute(plugin, () -> {
             player.setAllowFlight(false);
-            player.setFlying(false);
+            // 不取消鞘翅滑翔状态，防止离开领地时坠机
+            if (!player.isGliding()) {
+                player.setFlying(false);
+            }
         }, null, 0);
     }
 
