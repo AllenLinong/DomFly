@@ -105,21 +105,17 @@ public class Fly implements Listener {
 
     private void enableFlight(Player player) {
         flyingPlayers.add(player.getUniqueId());
-        player.getScheduler().execute(plugin, () -> {
-            player.setAllowFlight(true);
-            player.setFlying(true);
-        }, null, 0);
+        player.setAllowFlight(true);
+        player.setFlying(true);
     }
 
     private void disableFlight(Player player) {
         flyingPlayers.remove(player.getUniqueId());
-        player.getScheduler().execute(plugin, () -> {
-            player.setAllowFlight(false);
-            // 不取消鞘翅滑翔状态，防止离开领地时坠机
-            if (!player.isGliding()) {
-                player.setFlying(false);
-            }
-        }, null, 0);
+        player.setAllowFlight(false);
+        // 不取消鞘翅滑翔状态，防止离开领地时坠机
+        if (!player.isGliding()) {
+            player.setFlying(false);
+        }
     }
 
     private boolean isInOwnClaim(Player player) {
